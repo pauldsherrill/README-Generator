@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const path = require('path');
-const generateMarkdown = require('./utils/generateMarkdown');
+const { generateMarkdown } = require('./utils/generateMarkdown');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -27,6 +27,16 @@ const questions = [
         name: 'usage',
     },
     {
+        type: 'input',
+        message: 'Who contributed to this project?',
+        name: 'contributing',
+    },
+    {
+        type: 'input',
+        message: 'What tests were used for this project?',
+        name: 'tests',
+    },
+    {
         type: 'list',
         message: 'What license would you like to use for your project?',
         name: 'license',
@@ -35,21 +45,17 @@ const questions = [
     {
         type: 'input',
         message: 'What is your GitHub username?',
-        name: 'questions',
-    }
-
+        name: 'author',
+    },
 ];
 
 // TODO: Create a function to write README file
-function writeToFile() {
-    fs.writeFileSync();
-}
 
 // TODO: Create a function to initialize app
 function init() {
-    inquirer.prompt(questions).then((userAnswers) => {
-        writeToFile('README.md', generateMarkdown(userAnswers));
-    })
+    inquirer.prompt(questions).then((answers) => {
+        fs.writeFile('README.md', generateMarkdown(answers));
+    });
 }
 // Function call to initialize app
 init();
