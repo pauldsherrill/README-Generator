@@ -18,7 +18,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'How steps did you take to install your project?',
+        message: 'What steps did you take to install your project?',
         name: 'installation',
     },
     {
@@ -31,7 +31,13 @@ const questions = [
         message: 'What license would you like to use for your project?',
         name: 'license',
         choices: ['MIT', 'APACHE', 'GPL 3.0', 'BSD 3', 'None'],
+    },
+    {
+        type: 'input',
+        message: 'What is your GitHub username?',
+        name: 'questions',
     }
+
 ];
 
 // TODO: Create a function to write README file
