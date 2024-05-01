@@ -24,7 +24,7 @@ const questions = [
     {
         type: 'input',
         message: 'How would a user navigate and use your project?',
-        name: 'description',
+        name: 'usage',
     },
     {
         type: 'list',
