@@ -18,7 +18,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'What steps did you take to install your project?',
+        message: 'Explain what steps you took to install your project?',
         name: 'installation',
     },
     {
@@ -28,7 +28,7 @@ const questions = [
     },
     {
         type: 'input',
-        message: 'Who contributed to this project?',
+        message: 'How can others help contribute to your project?',
         name: 'contributing',
     },
     {
@@ -44,17 +44,22 @@ const questions = [
     },
     {
         type: 'input',
+        message: 'What is your name?',
+        name: 'name',
+    },
+    {
+        type: 'input',
         message: 'What is your GitHub username?',
-        name: 'author',
+        name: 'github',
     },
 ];
-
-// TODO: Create a function to write README file
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions).then((answers) => {
-        fs.writeFile('README.md', generateMarkdown(answers));
+        fs.writeFile('README.md', generateMarkdown(answers), (err) => {
+            err ? console.error(err) : console.log('Generated README.md');
+        });
     });
 }
 // Function call to initialize app
