@@ -18,15 +18,15 @@ function renderLicenseBadge(answers) {
 // If there is no license, return an empty string
 function renderLicenseLink(answers) {
   if (answers.license == 'MIT') {
-
+    return `[MIT](https://www.mit.edu/~amini/LICENSE.md)`;
   } else if (answers.license == 'APACHE') {
-
+    return `[APACHE](https://www.apache.org/licenses/LICENSE-2.0.txt)`;
   } else if (answers.license == 'GPL 3.0') {
-    
+    return `[GPL 3.0](https://www.gnu.org/licenses/gpl-3.0.en.html#license-text)`;
   } else if (answers.license == 'BSD 3') {
-    
+    return `[BSD 3](https://opensource.org/license/bsd-3-clause)`;
   } else if (answers.license == 'None') {
-    
+    return '';
   }
 }
 
@@ -34,7 +34,7 @@ function renderLicenseLink(answers) {
 // If there is no license, return an empty string
 function renderLicenseSection(answers) {
   return `Copyright © 2024 ${answers.name}. <br />
-This project is ${answers.license} licensed.`
+This project is ${renderLicenseLink(answers)} licensed.`
 }
 
 // TODO: Create a function to generate markdown for README
@@ -51,7 +51,7 @@ ${answers.description}
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [License](#license)
-- [Author](#author)
+- [Questions](#questions)
 
 ## Installation
 ${answers.installation}
@@ -70,7 +70,7 @@ ${renderLicenseSection(answers)}
 
 ## Questions
 ${answers.name} <br />
-Github: ${answers.github}`
+https://github.com/${answers.github}`
 )
 }
 
